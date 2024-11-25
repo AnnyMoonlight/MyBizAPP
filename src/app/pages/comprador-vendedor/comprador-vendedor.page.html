@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/comprador/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let producto of productos" [routerLink]="['/comprador/vendedor', vendedorId, 'producto', producto.id]">
+      <ion-thumbnail slot="start">
+        <img [src]="producto.imagen || 'assets/default-product.png'" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ producto.nombre }}</h2>
+        <p>Stock: {{ producto.stock }}</p>
+        <p>Precio: ${{ producto.valor }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

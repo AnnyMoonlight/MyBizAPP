@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/vendedor/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ esEdicion ? 'Editar Producto' : 'Agregar Producto' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="guardarProducto()">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [(ngModel)]="producto.nombre" name="nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="producto.descripcion" name="descripcion" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Valor</ion-label>
+      <ion-input type="number" [(ngModel)]="producto.valor" name="valor" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Stock</ion-label>
+      <ion-input type="number" [(ngModel)]="producto.stock" name="stock" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Seleccionar Imagen</ion-label>
+      <ion-button expand="full" (click)="abrirGaleria()">Abrir Galería</ion-button>
+    </ion-item>
+
+    <ion-thumbnail *ngIf="producto.imagen">
+      <img [src]="producto.imagen" alt="Vista previa de la imagen" />
+    </ion-thumbnail>
+
+    <ion-button expand="block" type="submit">{{ esEdicion ? 'Actualizar Producto' : 'Guardar Producto' }}</ion-button>
+  </form>
+</ion-content>

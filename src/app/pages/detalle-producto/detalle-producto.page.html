@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/vendedor/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" *ngIf="producto; else noProducto">
+    <ion-thumbnail>
+      <img [src]="producto.imagen || 'assets/default-product.png'" />
+    </ion-thumbnail>
+    <h1>{{ producto.nombre }}</h1>
+    <p>Descripción: {{ producto.descripcion }}</p>
+    <p>Precio: ${{ producto.valor }}</p>
+    <p>Stock: {{ producto.stock }}</p>
+
+    <!-- Opciones para el vendedor -->
+    <ion-button expand="full" color="primary" *ngIf="vendedorUid" (click)="irAEditarProducto()">
+      Editar Producto
+    </ion-button>
+    <ion-button expand="full" color="danger" *ngIf="vendedorUid" (click)="eliminarProducto()">
+      Eliminar Producto
+    </ion-button>
+  </div>
+
+  <ng-template #noProducto>
+    <div class="ion-padding">
+      <h2>Producto no encontrado</h2>
+    </div>
+  </ng-template>
+</ion-content>

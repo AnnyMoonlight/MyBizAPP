@@ -35,3 +35,45 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-content {
+    --background: #ffffff; /* Fondo blanco */
+    --ion-text-color: black;
+    color: #000000; /* Texto negro */
+    padding: 10px; /* Agregar espacio interno para todo el contenido */
+  }
+  
+  ion-toolbar {
+    --background: #ffffff; /* Header blanco */
+    color: #000000; /* Texto del header */
+  }
+  
+  ion-item {
+    --background: white;
+    --border-color: lightgray;
+    --inner-border-width: 0;
+    border-bottom: 1px solid lightgray; /* Línea tenue entre items */
+  }
+  
+  ion-button {
+    --background: #007bff; /* Botón azul claro */
+  --border-radius: 5px;
+  --color: white;
+  }
+  
+  ion-input, ion-textarea {
+    --background: white;
+    --border-color: lightgray;
+    --border-radius: 5px;
+    --padding: 10px;
+    --ion-color: black;
+    border: 1px solid lightgray;
+  }
+
+  ion-segment-button {
+    color: black;
+    font-weight: bold;
+  }
+  ion-segment-button[checked] {
+    color: #007bff; /* Azul para indicar el botón activo */
+  }
